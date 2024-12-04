@@ -14,7 +14,8 @@ function App() {
       const parsedCondicoes = JSON.parse(condicoes);
       const parsedAcoes = JSON.parse(acoes);
   
-      const response = await fetch('http://localhost:3030/gerar-tabela', {
+      //const response = await fetch('http://localhost:3030/gerar-tabela', {
+      const response = await fetch('http://ec2-13-51-177-137.eu-north-1.compute.amazonaws.com:3030/gerar-tabela', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
