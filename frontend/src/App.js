@@ -12,7 +12,7 @@ function App() {
   const handleGerarTabela = async () => {
     try {
       setIsLoading(true);
-
+  
       // Função para converter texto em JSON
       const parseInputToJSON = (input) => {
         const lines = input.split(';').map((line) => line.trim()).filter(Boolean);
@@ -25,13 +25,14 @@ function App() {
         });
         return json;
       };
-
+  
       // Converter o texto das condições e ações para JSON
       const parsedCondicoes = parseInputToJSON(condicoes);
       const parsedAcoes = parseInputToJSON(acoes);
-
+  
       // Fazer a requisição para o back-end
-      const response = await fetch('http://localhost:3030/gerar-tabela', {
+        const response = await fetch('http://localhost:3030/gerar-tabela', {
+        //const response = await fetch('http://ec2-13-51-177-137.eu-north-1.compute.amazonaws.com:3030/gerar-tabela', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,11 +43,11 @@ function App() {
           actions: parsedAcoes,
         }),
       });
-
+  
       if (!response.ok) {
         throw new Error('Erro na API');
       }
-
+  
       const data = await response.json();
       setSaida(data.obj.table);
     } catch (error) {
@@ -55,30 +56,6 @@ function App() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  const copyToClipboard = () => {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(saida)
-        .then(() => alert('Conteúdo copiado com sucesso!'))
-        .catch(() => fallbackCopyToClipboard(saida));
-    } else {
-      fallbackCopyToClipboard(saida);
-    }
-  };
-
-  const fallbackCopyToClipboard = (text) => {
-    const textArea = document.createElement('textarea');
-    textArea.value = text;
-    document.body.appendChild(textArea);
-    textArea.select();
-    try {
-      document.execCommand('copy');
-      alert('Conteúdo copiado com sucesso!');
-    } catch (err) {
-      console.error('Erro ao copiar o conteúdo:', err);
-    }
-    document.body.removeChild(textArea);
   };
 
   const isButtonDisabled = !condicoes.trim() || !acoes.trim();
@@ -111,7 +88,7 @@ function App() {
                   Insira as condições, uma por linha, utilizando dois pontos (:) para descrever cada uma. Separe múltiplas condições com ponto e vírgula (;).
                   <br />
                   <br />
-                  Garanta que as condições sejam claras e específicas para evitar erros de interpretação, e garantir maior precisão da geração da tabela de decisão.
+                  Garanta que as condições sejam claras e específicas para evitar erros de interpretação, e garatir maior precisão da geração da tabela de decisão.
                 </div>
               )}
             </label>
@@ -147,8 +124,8 @@ function App() {
             />
           </div>
           <button onClick={handleGerarTabela} disabled={isButtonDisabled}>
-            Gerar Tabela
-          </button>
+          Gerar Tabela
+        </button>
         </div>
         <div className="saidas">
           <h2>Saídas</h2>
@@ -162,19 +139,21 @@ function App() {
             )}
           </div>
           <button
-            className="share-icon"
-            onClick={copyToClipboard}
-          >
-            📋 Copiar Conteúdo
-          </button>
-          <a
-            href={`https://wa.me/?text=${encodeURIComponent(saida)}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="share-icon"
-          >
-            💬 Compartilhar no WhatsApp
-          </a>
+        className="share-icon"
+        onClick={() => navigator.clipboard.writeText(saida)}
+        
+      >
+        📋 Copiar Conteúdo
+      </button>
+      <a
+        href={`https://wa.me/?text=${encodeURIComponent(saida)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="share-icon"
+      >
+        💬 Compartilhar no WhatsApp
+      </a>
+      
         </div>
       </div>
     </div>
