@@ -1,7 +1,7 @@
 # Tabela.AI
 
 ## Descrição
-Tabela.AI é um projeto que utiliza inteligência artificial para a geração automática de **tabelas de decisão**, facilitando a definição de regras de negócio com base em condições e ações pré-definidas.
+A Tabela.AI foi desenvolvida como meu projeto de Trabalho de Conclusão de Curso (TCC) no curso de Tecnologia em Sistemas para Internet pelo IFRS. O projeto utiliza inteligência artificial para a geração automática de tabelas de decisão e cenários de teste escritos em BDD, com base em condições e ações inseridas pelo usuário. A proposta é otimizar a criação de cenários de teste, tornando o processo mais intuitivo, eficiente e automatizado.
 
 O repositório está organizado da seguinte maneira:
 
