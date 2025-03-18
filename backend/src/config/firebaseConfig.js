@@ -3,7 +3,6 @@ const serviceAccountFirebaseConfig = require('../../firebaseConfig.json');
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccountFirebaseConfig),
-  // databaseURL: process.env.FIREBASE_DATABASE_URL,
 });
 
 const firestore = admin.firestore();

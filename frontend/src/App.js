@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
+import copyIcon from './copy.svg';
+import shareIcon from './share.svg';
+import helpIcon from './help.svg';
+
 
 function App() {
   const [condicoes, setCondicoes] = useState('');
@@ -81,7 +85,11 @@ function App() {
                 onMouseEnter={() => setShowHelpCondicoes(true)}
                 onMouseLeave={() => setShowHelpCondicoes(false)}
               >
-                ❓
+              <img 
+                src={helpIcon} 
+                alt="Ajuda" 
+                style={{ width: '20px', cursor: 'pointer', verticalAlign: 'middle' }} 
+              />
               </span>
               {showHelpCondicoes && (
                 <div className="tooltip">
@@ -99,14 +107,18 @@ function App() {
             />
           </div>
           <div className="campo">
-            <label>
+            <label >
               Ações:
               <span
                 className="help-icon"
                 onMouseEnter={() => setShowHelpAcoes(true)}
                 onMouseLeave={() => setShowHelpAcoes(false)}
               >
-                ❓
+              <img 
+                src={helpIcon} 
+                alt="Ajuda" 
+                style={{ width: '20px', cursor: 'pointer', verticalAlign: 'middle'}} 
+              />
               </span>
               {showHelpAcoes && (
                 <div className="tooltip">
@@ -138,21 +150,31 @@ function App() {
               <p style={{ textAlign: 'center' }}>Aguardando resultado...</p>
             )}
           </div>
-          <button
-        className="share-icon"
-        onClick={() => navigator.clipboard.writeText(saida)}
-        
-      >
-        📋 Copiar Conteúdo
-      </button>
-      <a
-        href={`https://wa.me/?text=${encodeURIComponent(saida)}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="share-icon"
-      >
-        💬 Compartilhar no WhatsApp
-      </a>
+           <button
+            className="share-icon"
+            onClick={() => navigator.clipboard.writeText(saida)}
+           >
+        <img 
+          src={copyIcon} 
+          alt="Ícone de Copiar" 
+          style={{ width: '20px', marginRight: '8px', verticalAlign: 'middle' }}
+         />
+          Copiar Conteúdo
+          </button>
+          <a
+  href={`https://wa.me/?text=${encodeURIComponent(saida)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="share-icon"
+  style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+>
+  <img 
+    src={shareIcon} 
+    alt="Ícone de Compartilhar" 
+    style={{ width: '20px', marginRight: '8px', verticalAlign: 'middle' }} 
+  />
+  Compartilhar no WhatsApp
+</a>
       
         </div>
       </div>

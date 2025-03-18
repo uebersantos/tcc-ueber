@@ -99,9 +99,9 @@ class ChatGPTService {
   Assegure que cada cenário cubra uma combinação única da tabela gerada.
   Certifique-se de que os cenários são claros e podem ser usados diretamente como base para testes automatizados ou manuais.
   
-  somente me retorner as tabelas e os cenarios dem bdd
+  Somente me retorner as tabelas e os cenarios em bdd.
 
-  na tabela de condições não insira o numero nada sobre cenarios
+  Na tabela de condições não insira o número, apenas insira o numero nos cenarios.
   
   
   `;
