@@ -34,18 +34,17 @@ O arquivo `firebaseConfig.json` deve ser estruturado da seguinte forma:
 
 ```json
 {
-  "type": "service_account",  // Tipo da conta. Deve ser "service_account" para autenticação de servidores
-  "project_id": "SEU_PROJECT_ID",  // ID do projeto Firebase. Exemplo: "meu-projeto-firebase"
-  "private_key_id": "SEU_PRIVATE_KEY_ID",  // ID único da chave privada gerada pelo Firebase
+  "type": "service_account",  
+  "project_id": "SEU_PROJECT_ID",  
+  "private_key_id": "SEU_PRIVATE_KEY_ID", 
   "private_key": "-----BEGIN PRIVATE KEY-----\nSEU_PRIVATE_KEY_AQUI\n-----END PRIVATE KEY-----\n",  
-  // Chave privada usada para autenticação. Deve ser mantida segura e NUNCA compartilhada publicamente
-  "client_email": "SEU_CLIENT_EMAIL",  // E-mail da conta de serviço, gerado pelo Firebase. Exemplo: "firebase-adminsdk-abcde@meu-projeto.iam.gserviceaccount.com"
-  "client_id": "SEU_CLIENT_ID",  // ID do cliente associado à conta de serviço
-  "auth_uri": "https://accounts.google.com/o/oauth2/auth",  // URL para solicitar tokens de autenticação via OAuth 2.0
-  "token_uri": "https://oauth2.googleapis.com/token",  // URL para obter tokens de acesso OAuth
-  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",  // URL para os certificados públicos usados pelo Google para autenticação
-   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/SEU_CLIENT_EMAIL",  // URL que aponta para o certificado público do cliente, usado para validar tokens de autenticação gerados pela conta de serviço
-  "universe_domain": "googleapis.com"  // Define o domínio base dos serviços do Firebase (normalmente "googleapis.com").
+  "client_email": "SEU_CLIENT_EMAIL",
+  "client_id": "SEU_CLIENT_ID",  
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",  
+  "token_uri": "https://oauth2.googleapis.com/token",  
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",  
+   "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/SEU_CLIENT_EMAIL",
+  "universe_domain": "googleapis.com" 
 }
 ```
 
